@@ -53,12 +53,11 @@ app.use("/api/address",addressRouter)
 app.use("/api/order",orderRouter)
 
 
- connectDB()
-// 
-//.then(()=>{
-//     app.listen(PORT,()=>{
-// console.log("Server is running successfully",PORT)
-// })
-// })
 
-module.exports = app;
+connectDB().then(()=>{
+    app.listen(PORT,()=>{
+console.log("Server is running successfully",PORT)
+})
+})
+
+// module.exports = app;

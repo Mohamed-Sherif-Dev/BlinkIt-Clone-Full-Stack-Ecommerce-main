@@ -179,6 +179,7 @@ export async function webhookStripe(request, response) {
       if (order && order.length > 0) {
         await UserModel.findByIdAndUpdate(userId, {
           shopping_cart: [],
+            $push: { orders: order.map(o => o._id) } // Assuming you want to keep track of orders in the user model
         });
 
         
